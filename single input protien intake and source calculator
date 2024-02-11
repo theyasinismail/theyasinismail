@@ -1,1 +1,73 @@
+class protin():
+  def __init__(self,name,weight):
+    self.n=name
+    self.w=weight
+
+
+  def protin_calc(self):
+    self.max_n_protin=int(self.w)*1.5
+    self.min_n_protin=int(self.w)*0.8
+    print(f'{self.n} needs minimum {round(self.min_n_protin)}gm to maximum {round(self.max_n_protin)}gm of protien')
+    print("\n")
+  def show_sources(self):
+    self.A='Chicken breast'.lower()
+    self.B='Tuna fish'.lower()
+    self.C='Protien powder'.lower()
+    self.D='Egg'.lower()
+    self.E='Beef'.lower()
+    print(f"we have mainly {self.A},{self.B},{self.C},{self.D},{self.E}")
+    print("\n")
+
+  def protin_quantity(self):
+    self.breast=35
+    self.tuna=28
+    self.powder=30
+    self.egg=7
+    self.beef=26
+    print(f'100gm of, {self.A} has {self.breast}gm of protien\n          {self.B} has {self.tuna}gm of protien\n          {self.C} has {self.powder}gmm of protien per scoop\n          {self.D} has {self.egg}gm of protien\n          {self.E} has {self.beef}gm of protien')
+    print("\n")
+
+  def protin_choice(self,prefered_source,prefered_quantity):
+    self.source=prefered_source.lower()
+    self.quantity=prefered_quantity
+    if self.source==self.A:
+      self.total_protin=(self.quantity/100)*self.breast
+    elif self.source==self.B:
+      self.total_protin=(self.quantity/100)*self.tuna
+    elif self.source==self.C:
+      self.total_protin=self.quantity
+    elif self.source==self.D:
+      self.total_protin=self.quantity*self.egg
+    elif self.source==self.E:
+      self.total_protin=(self.quantity/100)*self.beef
+    else:
+      self.total_protin=0
+      print('the protien source is not listed,try again!')
+    print("\n")
+    print(f'you are choosing to take {self.total_protin}gm of protien per day')
+
+  def gains(self):
+    if 0<=self.total_protin<self.min_n_protin:
+      print("Losing Muscles Expected")
+    elif self.min_n_protin<self.total_protin<self.max_n_protin:
+      print("Muscle gain possible")
+    elif self.total_protin>self.max_n_protin:
+      print("Chance of health risk expected")
+    else:
+      print("Invalid inputs")
+
+
+naam=input("put the person's name:")
+ojon=input("put the person's weight in kg:")
+pookie=protin(naam,float(ojon))
+pookie.protin_calc()
+pookie.show_sources()
+pookie.protin_quantity()
+source=input("put the source of your protien:")
+quantity=input("put the quantity you wish to take per day:")
+pookie.protin_choice(source,int(quantity))
+pookie.gains()
+
+
+
 
